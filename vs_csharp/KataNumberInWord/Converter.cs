@@ -1,9 +1,14 @@
 ﻿namespace KataNumberInWord
 {
+    using System.IO;
+
     public class Converter
     {
-        public string numberToWord(int number)
+        public string NumberToWord(int number)
         {
+            if (number < 0)
+                throw new InvalidDataException("You cannot use negative amouts");
+
             switch (number)
             {
                 case 0: return "zero";
@@ -21,3 +26,4 @@
         }
     }
 }
+
