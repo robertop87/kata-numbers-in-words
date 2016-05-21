@@ -1,6 +1,7 @@
 ﻿namespace KataNumberInWordTests
 {
     using System.Collections.Generic;
+    using System.IO;
 
     using KataNumberInWord;
 
@@ -10,6 +11,7 @@
     public class ConverterTest
     {
         private Dictionary<int, string> singleDigits;
+        private Converter converter;
 
         [TestInitialize]
         public void Init()
@@ -27,25 +29,31 @@
                 {8, "eight"},
                 {9, "nine"}
             };
+
+            this.converter = new Converter();
         }
 
 
         [TestMethod]
         public void OneDigitInWordTest()
         {
-            var converter = new Converter();
-            var expectedWord = "one";
-            Assert.AreEqual(expectedWord, converter.numberToWord(1));
+            Assert.AreEqual("one", this.converter.NumberToWord(1));
         }
 
         [TestMethod]
         public void AllValidSingleDigitInWordTest()
         {
-            var converter = new Converter();
             foreach (var tuple in this.singleDigits)
             {
-                Assert.AreEqual(tuple.Value, converter.numberToWord(tuple.Key));
+                Assert.AreEqual(tuple.Value, this.converter.NumberToWord(tuple.Key));
             }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidDataException))]
+        public void NegativeNumberInWordTest()
+        {
+            var res = this.converter.NumberToWord(-1);
         }
     }
 }
