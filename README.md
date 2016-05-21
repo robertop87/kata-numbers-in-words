@@ -4,8 +4,9 @@ This is a partial result of a Coding Dojo made by Swissbytes guys.
 
 We will try to add many languages if possible, for the moment we just have:
 
-* Java with Maven
-* C# with VS2015
+* Java (Maven project)
+* C# (VS2015 project)
+* Ruby (Plain text)
 
 Rules: Randori.
 Exercise: http://codingdojo.org/cgi-bin/index.pl?KataNumbersInWords
